@@ -1,0 +1,36 @@
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit(articleForm.value)">
+    <div>
+        <label for="">Start:</label>
+        <input type="text" placeholder="start" formControlName = "start">
+      </div>
+      <div>
+          <label for="">End:</label>
+          <input type="text" placeholder="end" formControlName = "end">
+        </div>
+        <button type="submit">Submit</button>
+</form>
+
+<!-- <div>
+<h3>Article Details</h3>
+<table>
+  <tr><th> Id</th> <th>Start</th><th>End</th></tr>
+  <tr *ngFor="let article of allArticles" >
+        <td>{{article.id}}</td> 
+        <td>{{article.start}}</td> 
+        <td>{{article.end}}</td>
+  </tr>
+</table> 
+</div> -->
+
+<br>
+
+<div class="container">
+  <div class="tripDetails" *ngFor="let trip of allArticles; let i = index;">
+    <div class="t1"> 
+      <p class="data">{{trip.start | slice:0:3 | uppercase}}-{{trip.end | slice:0:3 | uppercase}}</p>
+      <i *ngIf="createRoute(trip, i)" class="right"></i>
+      <!-- <div class="consecutive"></div> -->
+    </div>
+     <div class="t2"></div> 
+  </div>
+</div>
